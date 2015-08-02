@@ -4,6 +4,7 @@ $host = "";
 $username = "";
 $password = "";
 $dbname = "";
+$usertablename = "";
 
 $conn = new mysqli($host, $username, $password, $dbname);
 if ($conn->connect_errno) {
@@ -21,7 +22,7 @@ else
         preg_match($pattern, $_GET['swfurl'], $matches);
 }
 
-$query = "SELECT idhash FROM users WHERE username = '$name'";
+$query = "SELECT idhash FROM $usertablename WHERE username = '$name'";
 $result = $conn->query($query);
 $row = $result->fetch_array(MYSQLI_ASSOC);
 
