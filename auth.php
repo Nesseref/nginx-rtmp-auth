@@ -13,7 +13,7 @@ if ($conn->connect_errno) {
 if(empty($_GET['name']) || empty($_GET['swfurl']))
 {
         http_response_code(400);
-        die("Bad query");
+        die();
 }
 else
 {
@@ -21,17 +21,16 @@ else
         preg_match($pattern, $_GET['swfurl'], $matches);
 }
 
-#mysql_select_db($dbname);
 $query = "SELECT idhash FROM users WHERE username = '$name'";
 $result = $conn->query($query);
 $row = $result->fetch_array(MYSQLI_ASSOC);
 
 if ($matches[1] == $row['idhash']){
         http_response_code(200);
-        die("Good query");
+        die();
 }
 else{
         http_response_code(400);
-        die("Bad query");
+        die();
 }
 ?>
