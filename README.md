@@ -12,7 +12,7 @@ Server-side configuration:
   - Set the web root to an appropriate value
   - Adjust worker_processes and worker_connections to sane values for the platform
   - Set the name of the rtmp server application block to whatever is desired (defaults to "stream")
-  - Place auth.php in the web root and adjust the on_publish directive url to reflect its location
+  - Place the .php files in the web root and adjust the on_publish directive url to reflect the location of auth.php
   - Set MySQL-related variables in common.php ($host, $username, $password, $dbname, $usertablename)
   - Ensure the MySQL server is accepting connections from the user specified in common.php and the user specified in common.php has the correct privileges to read from the defined users table
   - Configure the users table
