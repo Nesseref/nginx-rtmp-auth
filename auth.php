@@ -1,10 +1,6 @@
 <?php
 $pattern = "/\\?(.*$)/i";
-$host = "";
-$username = "";
-$password = "";
-$dbname = "";
-$usertablename = "";
+include "common.php";
 
 $conn = new mysqli($host, $username, $password, $dbname);
 if ($conn->connect_errno) {
