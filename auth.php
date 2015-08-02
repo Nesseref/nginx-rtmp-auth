@@ -13,7 +13,7 @@ if ($conn->connect_errno) {
 if(empty($_GET['name']) || empty($_GET['swfurl']))
 {
         http_response_code(400);
-        die("Bad query 1");
+        die("Bad query");
 }
 else
 {
@@ -32,6 +32,6 @@ if ($matches[1] == $row['idhash']){
 }
 else{
         http_response_code(400);
-        die("Bad query 2");
+        die("Bad query");
 }
 ?>
