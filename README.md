@@ -1,5 +1,5 @@
 # nginx-rtmp-auth
-PHP/SQL backend for handling nginx-rtmp module stream authentication
+PHP/SQL backend for handling nginx rtmp module stream authentication
 
 Requirements:
   - Nginx with RTMP module installed (https://github.com/arut/nginx-rtmp-module)
@@ -23,7 +23,7 @@ Server-side configuration:
 
 Broadcaster-side configuration (assuming OBS):
   - Under Broadcast Settings, set Custom as the streaming service
-  - Set server to "rtmp://DOMAIN/stream?IDHASH" (assumes default rtmp server application block name of stream)
+  - Set server to "rtmp://DOMAIN/stream?IDHASH" (assumes default rtmp server application block name of "stream")
   - Set play path to USERNAME
   
 Player-side configuration:
