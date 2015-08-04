@@ -30,4 +30,4 @@ Player-side configuration:
   - The RTMP URL will be in the format "rtmp://DOMAIN/stream/USERNAME" (assumes default rtmp server application block name of stream)
 
 Known issues:
-  - Linux OBS (aka OBS MultiPlatform) versions <0.11.4 mangle variables defined in the server/stream URL when passing them to nginx, meaning that information sent that way (i.e. idhash) cannot be accessed by the authentication script
+  - OBS Studio (aka OBS MultiPlatform aka OBS Linux/Mac) versions <0.11.4 mangle variables defined in the server/stream URL when passing them to nginx, meaning that information sent that way (i.e. idhash) cannot be accessed by the authentication script
