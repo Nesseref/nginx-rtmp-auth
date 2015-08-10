@@ -16,7 +16,7 @@ Server-side configuration:
   - Set MySQL-related variables in common.php ($host, $username, $password, $dbname, $usertablename)
   - Ensure the MySQL server is accepting connections from the user specified in common.php and the user specified in common.php has the correct privileges to read from the defined users table
   - Configure the users table
-    - auth.php expects the following schema:
+    - The following schema are expected (but easily changed):
       - username VARCHAR(64)
       - email VARCHAR(64)
       - password VARCHAR(64)
