@@ -10,9 +10,21 @@ if ($conn->connect_errno) {
 if (empty($_SESSION["username"])) {
 	header("location: login.html");
 }
-
-echo "Hi, " . $_SESSION["username"] . "<br>";
-echo "<a href=$baseurl/showhash.php>Show your stream URL</a><br>";
-
 ?>
-
+<html>
+<head>
+<title>Frogstream User Profile</title>
+</head>
+<body>
+Hi, <?php echo $_SESSION["username"];?><br>
+<br><a href=<?php echo $baseurl;?>/showhash.php>Show your stream RTMP URL</a><br>
+<br><a href=<?php echo $baseurl;?>/resethash.php>Reset your stream RTMP URL</a><br>
+<br>Change your password:<br>
+<form action="changepass.php" method="post">
+Old password: <input type="password" name="oldpass"><br>
+New password: <input type="password" name="newpass"><br>
+<input type="submit">
+</form>
+<a href=<?php echo $baseurl;?>/logout.php>Logout</a><br>
+</body>
+</html>

@@ -42,4 +42,6 @@ $query = "INSERT INTO $usertablename (username, email, password, idhash) VALUES 
 $conn->query($query);
 echo "Server URL: " . $streamurl . $idhash . "<br>";
 echo "Play Path/Stream Key: " . $username;
+echo "<br><a href=$baseurl/index.html>Main page</a>";
+echo "<br><a href=$baseurl/profile.php>User profile</a>";
 die();
