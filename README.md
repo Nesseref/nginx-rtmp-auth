@@ -1,6 +1,10 @@
 # nginx-rtmp-auth
 PHP/SQL backend for handling nginx rtmp module stream authentication
 
+Note: the fun nginx/rtmp stuff is in auth.php and nginx.conf. Everything else is a very bare-bones set of PHP scripts to manage user tasks (user registration, id hash/password changes, etc) that could be easily replicated with practically any other web scripting language capable of interaction with a database.
+
+For that matter, the php auth script could be easily replicated in practically anything else that is capable of database interaction (or, really, even just reading from a .htpassword style file). All the script really needs to do is get called with certain parameters (I used GET for ease of debugging but POST would work just as well with a slightly different nginx.conf), check and see if those parameters constitute a valid set of credentials and, if so, return a HTTP 200 and, if not, return a HTTP 400. If you're interested in a authentication system for your nginx rtmp server and posess non-trivial programming experience, this project should be viewed as more of a template than a drop-in solution.
+
 Requirements:
   - Nginx with RTMP module (https://github.com/arut/nginx-rtmp-module)
   - a MySQL server
