@@ -2,7 +2,7 @@
 PHP/SQL backend for handling nginx rtmp module stream authentication
 
 Requirements:
-  - Nginx with RTMP module installed (https://github.com/arut/nginx-rtmp-module)
+  - Nginx with RTMP module (https://github.com/arut/nginx-rtmp-module)
   - a MySQL server
   - FastCGI
   - PHP with MySQLi extension
