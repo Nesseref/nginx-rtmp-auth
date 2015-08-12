@@ -31,6 +31,7 @@ Server-side configuration:
 Broadcaster-side configuration (assuming OBS):
   - Under Broadcast Settings, set Custom as the streaming service
   - Set server to "rtmp://DOMAIN/stream?IDHASH" (assumes default rtmp server application block name of "stream")
+    - This is referred to as "Stream RTMP URL" in the PHP web stuff
   - Set play path to USERNAME
   
 Player-side configuration:
