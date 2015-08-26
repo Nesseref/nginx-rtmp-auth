@@ -52,6 +52,8 @@ Server-side configuration:
       - idhash VARCHAR(64)
     - Other columns may be added as required
 
+# Non-specific
+
 Broadcaster-side configuration (assuming OBS):
   - Under Broadcast Settings, set Custom as the streaming service
   - Set server to "rtmp://DOMAIN/stream?IDHASH" (assumes default rtmp server application block name of "stream")
