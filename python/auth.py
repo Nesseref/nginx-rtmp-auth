@@ -16,7 +16,7 @@ def auth():
 	
 	conn = psycopg2.connect(database=config.database, user=config.user, password=config.password, host=config.host)
 	cur = conn.cursor()
-	cur.execute("SELECT FROM users WHERE username=%s AND idhash=%s", (username, idhash))
+	cur.execute("SELECT FROM %s WHERE username=%s AND idhash=%s", (config.usertablename, username, idhash))
 	
 	if len(cur.fetchall()) == 0:
 		return 'Incorrect credentials', status.HTTP_401_UNAUTHORIZED

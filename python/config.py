@@ -1,0 +1,5 @@
+database = ""
+user = ""
+password = ""
+host = ""
+usertablename = ""
