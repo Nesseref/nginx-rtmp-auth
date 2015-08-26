@@ -8,7 +8,6 @@ app = Flask(__name__)
 @app.route('/auth')
 def auth():
 	if request.args.get('name') is None or request.args.get('swfurl') is None:
-
 		message = 'Malformed request'
 		return message, status.HTTP_400_BAD_REQUEST
 	
@@ -16,7 +15,6 @@ def auth():
 	idhash = request.args.get('swfurl').split("?")[-1]
 	
 	conn = psycopg2.connect(database=config.database, user=config.user, password=config.password, host=config.host)
-	
 	cur = conn.cursor()
 	cur.execute("SELECT FROM users WHERE username=%s AND idhash=%s", (username, idhash))
 	
