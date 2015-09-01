@@ -8,8 +8,7 @@ app = Flask(__name__)
 @app.route('/auth')
 def auth():
 	if request.args.get('name') is None or request.args.get('swfurl') is None:
-		message = 'Malformed request'
-		return message, status.HTTP_400_BAD_REQUEST
+		return 'Malformed request', status.HTTP_400_BAD_REQUEST
 	
 	username = request.args.get('name')
 	idhash = request.args.get('swfurl').split("?")[-1]
