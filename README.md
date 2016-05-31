@@ -16,7 +16,7 @@ Server-side configuration:
   - Set nginx.conf as the live nginx conf (location of file depends on system)
   - Set the web root to an appropriate value
   - Adjust worker_connections to a sane value for the platform
-  - Set worker_processes to 1 to work around an issue in the nginx-rtmp module.
+  - Set worker_processes to 1 to work around an issue in the nginx-rtmp module
   - Set the name of the rtmp server application block to whatever is desired (defaults to "stream")
   - Place the .php/.html files in the web root and adjust the on_publish directive url to reflect the location of auth.php
   - Set MySQL-related variables in common.php ($host, $username, $password, $dbname, $usertablename)
@@ -40,7 +40,7 @@ Requirements:
 Server-side configuration:
   - Set nginx.conf as the live nginx conf (location of file depends on system)
   - Set the web root to an appropriate value
-  - Adjust worker_processes and worker_connections to sane values for the platform
+  - Set worker_processes to 1 to work around an issue in the nginx-rtmp module
   - Set the name of the rtmp server application block to whatever is desired (defaults to "stream")
   - Adjust the on_publish directive URL to reflect where the auth script is being served from (e.g. with the Flask development server, the URL would be http://localhost:5000/auth)
   - Set PostgreSQL-related variables in config.py (host, username, password, database, usertablename)
