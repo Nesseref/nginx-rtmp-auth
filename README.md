@@ -5,6 +5,8 @@ Note: the fun nginx/rtmp stuff is in auth.php/auth.py and nginx.conf. Everything
 
 For that matter, the auth scripts could be easily replicated in practically anything else that is capable of database interaction (or, really, even just reading from a .htpassword style file). All the script really needs to do is process a request, check and see if the query string constitutes a valid set of credentials and, if so, return a HTTP 200 and, if not, return a HTTP 400. If you're interested in an authentication system for your nginx rtmp server and posess non-trivial programming experience, this project should be viewed as more of an example than a drop-in solution.
 
+See https://github.com/Nesseref/html5-livestreaming for an example of using the python side of this project to provide authentication for an HTML5 (HLS with JS web player) environment.
+
 # PHP
 Requirements:
   - Nginx with RTMP module (https://github.com/arut/nginx-rtmp-module)
