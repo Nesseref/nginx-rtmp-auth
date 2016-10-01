@@ -6,10 +6,10 @@ $conn = new mysqli($host, $username, $password, $dbname);
 if ($conn->connect_errno) {
         die('Could not connect: ' . $conn->connect_error);
 }
-$username=isset($_POST["username"])?(string)$_POST["username"]:NULL;
-$password=isset($_POST["password"])?(string)$_POST["password"]:NULL;
+$username=isset($_POST["username"])?(string)$_POST["username"]:'';
+$password=isset($_POST["password"])?(string)$_POST["password"]:'';
 
-if (!isset($username) || !isset($password)) {
+if ($username==='' || $password==='') {
 	echo "Empty required field";
 	echo "<br><a href=$baseurl/login.html>Go back</a>";
 	die();
