@@ -6,15 +6,17 @@ $conn = new mysqli($host, $username, $password, $dbname);
 if ($conn->connect_errno) {
         die('Could not connect: ' . $conn->connect_error);
 }
+$username=isset($_POST["username"])?(string)$_POST["username"]:'';
+$password=isset($_POST["password"])?(string)$_POST["password"]:'';
 
-if (empty($_POST["username"]) || empty($_POST["password"])) {
+if ($username==='' || $password==='') {
 	echo "Empty required field";
 	echo "<br><a href=$baseurl/login.html>Go back</a>";
 	die();
 }
 
-$username = mysqli_real_escape_string($conn, $_POST["username"]);
-$password = hash('sha256', $_POST["password"]);
+$username = mysqli_real_escape_string($conn, $username);
+$password = hash('sha256', $password);
 
 $query = "SELECT * FROM $usertablename WHERE username = '$username' AND password = '$password'";
 $result = $conn->query($query);
