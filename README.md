@@ -8,6 +8,8 @@ For that matter, the auth scripts could be easily replicated in practically anyt
 See https://github.com/Nesseref/html5-livestreaming for an example of using the python side of this project to provide authentication for an HTML5 (HLS with JS web player) environment.
 
 # PHP
+**Note:** the PHP web stuff (i.e. not auth.php) is intended as an example of the sort of frontend functionality that can be constructed to interface with the authentication backend. Do **_not_** use these scripts in production, as they were not designed for actual use.
+
 Requirements:
   - Nginx with RTMP module (https://github.com/arut/nginx-rtmp-module)
   - a MySQL server
