@@ -1,14 +1,13 @@
 <?php
 include "common.php";
-
 session_start();
-$conn = new mysqli($host, $username, $password, $dbname);
-if ($conn->connect_errno) {
-        die('Could not connect: ' . $conn->connect_error);
-}
 
-if (empty($_SESSION["username"])) {
+//removed unneeded mysql database connection
+
+if (empty($_SESSION["username"]))
+{
 	header("location: login.html");
+	exit(); // exit or browser may see the rest of the page
 }
 ?>
 <html>
