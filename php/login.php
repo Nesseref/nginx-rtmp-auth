@@ -1,31 +1,47 @@
 <?php
 include "common.php";
-$baseurl = "http://stream.frogbox.es";
 
-$conn = new mysqli($host, $username, $password, $dbname);
-if ($conn->connect_errno) {
-        die('Could not connect: ' . $conn->connect_error);
+try
+{
+	$dbh = new PDO('mysql:host='.$host.';dbname='.$dbname.';charset=utf8', $username, $password);
+} catch(PDOException $e)
+{
+	http_response_code(401);
+	trigger_error($e->getMessage());
+	die("Database error!");
 }
-$username=isset($_POST["username"])?(string)$_POST["username"]:'';
-$password=isset($_POST["password"])?(string)$_POST["password"]:'';
 
-if ($username==='' || $password==='') {
+$login_username=isset($_POST["username"])?(string)$_POST["username"]:'';
+$login_password=isset($_POST["password"])?(string)$_POST["password"]:'';
+
+if ( empty($login_username) || empty($login_password) )
+{
 	echo "Empty required field";
 	echo "<br><a href=$baseurl/login.html>Go back</a>";
 	die();
 }
 
-$username = mysqli_real_escape_string($conn, $username);
-$password = hash('sha256', $password);
+$login_password = hash('sha256', $login_password);
+try
+{
+	$sth = $dbh->prepare("SELECT * FROM :table WHERE username = :username AND password = :password");
+	$sth->execute( array( 'table' => $usertablename, 'username' => $login_username, 'password' => $login_password ) );
+} catch(PDOException $e)
+{
+	trigger_error($e->getMessage());
+	die("database error");
+}
 
-$query = "SELECT * FROM $usertablename WHERE username = '$username' AND password = '$password'";
-$result = $conn->query($query);
-if (mysqli_num_rows($result) == 1) {
+$res = $sth->fetch();
+
+if( empty($res) )
+{
 	session_start();
 	$_SESSION["username"] = $username;
 	header("location: profile.php");
 }
-else {
+else
+{
 	echo "Invalid username/password combination";
 	echo "<br><a href=$baseurl/login.html>Go back</a>";
 	die();
